@@ -1,8 +1,36 @@
 import { useEffect, useState } from 'react';
-import { Settings, Power, Moon, Sun, Wind, Battery, Droplets, Thermometer, Zap } from 'lucide-react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import {
+  Settings,
+  Power,
+  Moon,
+  Sun,
+  Wind,
+  Battery,
+  Droplets,
+  Thermometer,
+  Zap
+} from 'lucide-react';
+
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell
+} from 'recharts';
+
 import { motion } from 'framer-motion';
-import { generateAQIHistory, filterHealthData, batteryHistory } from './utils/mockData';
+
+import {
+  generateAQIHistory,
+  filterHealthData
+} from './utils/mockData';
+
 import { supabase } from './lib/supabase';
 
 function App() {
