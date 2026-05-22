@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Settings, Power, Moon, Sun, Wind, Battery, Droplets, Thermometer, Zap } from 'lucide-react';
-import { AreaChart, Area, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { motion } from 'framer-motion';
-import { generateAQIHistory, filterHealthData } from './utils/mockData';
+import { generateAQIHistory, filterHealthData, batteryHistory } from './utils/mockData';
 import { supabase } from './lib/supabase';
 
 function App() {
@@ -71,7 +71,7 @@ function App() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <button 
+            <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full hover:bg-secondary transition-colors"
             >
@@ -103,8 +103,8 @@ function App() {
                 <AreaChart data={aqiData.slice(0, 10)}>
                   <defs>
                     <linearGradient id="colorAqi" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="hsl(var(--success))" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="hsl(var(--success))" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="hsl(var(--success))" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="hsl(var(--success))" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <Area type="monotone" dataKey="aqi" stroke="hsl(var(--success))" fillOpacity={1} fill="url(#colorAqi)" />
